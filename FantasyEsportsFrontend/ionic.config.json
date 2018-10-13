@@ -1,7 +1,0 @@
-{
-  "name": "fantasy-esport",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "ionic-angular"
-}
