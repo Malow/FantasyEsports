@@ -5,10 +5,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OverviewComponent } from '../pages/overview/overview.component';
 import { StartComponent } from '../pages/start/start.component';
 import { NotFoundComponent } from '../errorpages/not-found.component';
+import { LoginComponent } from '../pages/login/login.component';
 
 import { AppComponent } from './app.component';
 
 const appRoutes: Routes = [
+  { path: '',   redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
   { path: 'start', component: StartComponent },
   { path: 'overview', component: OverviewComponent },
   { path: '**', component: NotFoundComponent }
@@ -20,7 +23,8 @@ const appRoutes: Routes = [
     AppComponent,
     NotFoundComponent,
     OverviewComponent,
-    StartComponent
+    StartComponent,
+    LoginComponent
   ],
   imports: [
     NgbModule,
