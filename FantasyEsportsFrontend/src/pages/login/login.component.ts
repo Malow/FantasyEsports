@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../shared/services/auth.service';
 
 const PASSWORD_REGEXP: RegExp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,20}$/;
-const PASSWORD_HINT: string = 'Password must contain between 8 and 20 characters, at least one lowercase letter, one uppercase letter, one numeric digit, and one special CharacterData.Password between 8 and 20 characters; must contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character, but cannot contain whitespace.';
+const PASSWORD_HINT: string = 'Password between 8 and 20 characters; must contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character, but cannot contain whitespace.';
 const DISPLAY_NAME_REGEXP: RegExp = /^[a-zA-Z0-9]{0,20}$/;
 const DISPLAY_NAME_HINT: string = 'Display Name can contain any character or number and a maximum 20 characters long.';
 
@@ -22,7 +22,7 @@ export class LoginComponent {
 
   constructor(private authService: AuthService, private router: Router) {
     this.loginForm = new FormGroup({
-      email: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required]),
       staySignedIn: new FormControl(false, [Validators.required])
     });
@@ -49,7 +49,7 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       console.log(this.loginForm);
       this.authService.logIn();
-      this.router.navigate(['start'])
+      this.router.navigate(['start']);
     } else {
       console.error('Login form is not valid');
     }

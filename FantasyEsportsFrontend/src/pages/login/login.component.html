@@ -1,98 +1,101 @@
-<div class="login-page shadow">
-  <h1 class="title">Welcome to Fantasy League!</h1>
-  <div class="row">
-    <div class="col-md login">
-      <h4>Login</h4>
-      <form [formGroup]="loginForm" class="login-form" (ngSubmit)="onLogin()">
-        <div class="form-group">
-          <label for="email">Email address</label>
-          <input type="email"
+<div class="container">
+  <div class="login-page shadow">
+    <h1 class="title">Welcome to Fantasy League!</h1>
+    <div class="row">
+      <div class="col-md login">
+        <h4>Login</h4>
+        <form [formGroup]="loginForm" class="login-form" (ngSubmit)="onLogin()">
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email"
+              class="form-control"
+              id="email"
+              formControlName="email"
+              placeholder="google@gmail.com"
+              [ngClass]="{'border border-danger': loginForm.controls.email?.errors?.length > 0}">
+          </div>
+          <div *ngIf="!loginForm.controls.email.pristine">
+            <div class="alert alert-danger" *ngIf="loginForm.controls.email.errors?.required">Email is required.</div>
+            <div class="alert alert-danger" *ngIf="loginForm.controls.email.errors?.email">Email needs to be correctly formatted e.g email@gmail.com</div>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password"
             class="form-control"
-            id="email"
-            formControlName="email"
-            placeholder="google@gmail.com"
-            [ngClass]="{'border border-danger': loginForm.controls.email?.errors?.length > 0}">
-        </div>
-        <div *ngIf="!loginForm.controls.email.pristine">
-          <div class="alert alert-danger" *ngIf="loginForm.controls.email.errors?.required">Email is required.</div>
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password"
-          class="form-control"
-          id="password"
-          formControlName="password"
-          placeholder="********"
-          [ngClass]="{'border border-danger': loginForm.controls.password?.errors?.length > 0}">
-        </div>
-        <div *ngIf="!loginForm.controls.password.pristine">
-          <div class="alert alert-danger" *ngIf="loginForm.controls.password.errors?.required">Password is required.</div>
-        </div>
-        <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" id="staySignedIn" formControlName="staySignedIn">
-          <label class="form-check-label" for="staySignedIn">Stay signed in</label>
-        </div>
-        <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary btn-block">Login</button>
-      </form>
-    </div>
-
-    <div class="col-md register">
-      <h4>Register</h4>
-      <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
-        <div class="form-group">
-          <label for="registerEmail">Email address</label>
-          <input type="email"
-          class="form-control"
-          id="registerEmail"
-          formControlName="email"
-          placeholder="google@gmail.com"
-          [ngClass]="{'border border-danger': registerForm.controls.email?.errors?.length > 0}">
-        </div>
-        <div *ngIf="!registerForm.controls.email.pristine">
-          <div class="alert alert-danger" *ngIf="registerForm.controls.email.errors?.required">Email is required.</div>
-          <div class="alert alert-danger" *ngIf="registerForm.controls.email.errors?.email">Email needs to be correctly formatted e.g email@gmail.com</div>
-        </div>
-        <div class="form-group">
-          <label for="registerPassword">Password</label>
-          <input type="password"
-            class="form-control"
-            id="registerPassword"
+            id="password"
             formControlName="password"
             placeholder="********"
-            [ngClass]="{'border border-danger': registerForm.controls.password?.errors?.length > 0}">
-        </div>
-        <div *ngIf="!registerForm.controls.password.pristine">
-          <div class="alert alert-danger" *ngIf="registerForm.controls.password.errors?.required">Password is required.</div>
-          <div class="alert alert-danger" *ngIf="registerForm.controls.password.errors?.pattern">{{ getInvalidPasswordMessage() }}</div>
-        </div>
-        <div class="form-group">
-          <label for="confirmPassword">Confirm Password</label>
-          <input type="password"
+            [ngClass]="{'border border-danger': loginForm.controls.password?.errors?.length > 0}">
+          </div>
+          <div *ngIf="!loginForm.controls.password.pristine">
+            <div class="alert alert-danger" *ngIf="loginForm.controls.password.errors?.required">Password is required.</div>
+          </div>
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="staySignedIn" formControlName="staySignedIn">
+            <label class="form-check-label" for="staySignedIn">Stay signed in</label>
+          </div>
+          <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary btn-block">Login</button>
+        </form>
+      </div>
+
+      <div class="col-md register">
+        <h4>Register</h4>
+        <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+          <div class="form-group">
+            <label for="registerEmail">Email address</label>
+            <input type="email"
             class="form-control"
-            id="confirmPassword"
-            formControlName="confirmPassword"
-            placeholder="********"
-            [ngClass]="{'border border-danger': registerForm.controls.confirmPassword?.errors?.length > 0}">
-        </div>
-        <div *ngIf="!registerForm.controls.confirmPassword.pristine">
-          <div class="alert alert-danger" *ngIf="registerForm.controls.confirmPassword.errors?.PasswordNotMatch">Password does not match.</div>
-          <div class="alert alert-danger" *ngIf="registerForm.controls.confirmPassword.errors?.required">Password needs to be confirmed.</div>
-        </div>
-        <div class="form-group">
-          <label for="displayName">Display Name</label>
-          <input type="text"
-            class="form-control"
-            id="displayName"
-            formControlName="displayName"
-            placeholder="theKinGZlayer1337"
-            [ngClass]="{'border border-danger': registerForm.controls.displayName?.errors?.length > 0}">
-        </div>
-        <div *ngIf="!registerForm.controls.displayName.pristine">
-          <div class="alert alert-danger" *ngIf="registerForm.controls.displayName.errors?.required">Display Name is required.</div>
-          <div class="alert alert-danger" *ngIf="registerForm.controls.displayName.errors?.pattern">{{ getInvalidDisplayNameMessage() }}</div>
-        </div>
-        <button type="submit" [disabled]="!registerForm.valid" class="btn btn-primary btn-block">Register</button>
-      </form>
+            id="registerEmail"
+            formControlName="email"
+            placeholder="google@gmail.com"
+            [ngClass]="{'border border-danger': registerForm.controls.email?.errors?.length > 0}">
+          </div>
+          <div *ngIf="!registerForm.controls.email.pristine">
+            <div class="alert alert-danger" *ngIf="registerForm.controls.email.errors?.required">Email is required.</div>
+            <div class="alert alert-danger" *ngIf="registerForm.controls.email.errors?.email">Email needs to be correctly formatted e.g email@gmail.com</div>
+          </div>
+          <div class="form-group">
+            <label for="registerPassword">Password</label>
+            <input type="password"
+              class="form-control"
+              id="registerPassword"
+              formControlName="password"
+              placeholder="********"
+              [ngClass]="{'border border-danger': registerForm.controls.password?.errors?.length > 0}">
+          </div>
+          <div *ngIf="!registerForm.controls.password.pristine">
+            <div class="alert alert-danger" *ngIf="registerForm.controls.password.errors?.required">Password is required.</div>
+            <div class="alert alert-danger" *ngIf="registerForm.controls.password.errors?.pattern">{{ getInvalidPasswordMessage() }}</div>
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password"
+              class="form-control"
+              id="confirmPassword"
+              formControlName="confirmPassword"
+              placeholder="********"
+              [ngClass]="{'border border-danger': registerForm.controls.confirmPassword?.errors?.length > 0}">
+          </div>
+          <div *ngIf="!registerForm.controls.confirmPassword.pristine">
+            <div class="alert alert-danger" *ngIf="registerForm.controls.confirmPassword.errors?.PasswordNotMatch">Password does not match.</div>
+            <div class="alert alert-danger" *ngIf="registerForm.controls.confirmPassword.errors?.required">Password needs to be confirmed.</div>
+          </div>
+          <div class="form-group">
+            <label for="displayName">Display Name</label>
+            <input type="text"
+              class="form-control"
+              id="displayName"
+              formControlName="displayName"
+              placeholder="theKinGZlayer1337"
+              [ngClass]="{'border border-danger': registerForm.controls.displayName?.errors?.length > 0}">
+          </div>
+          <div *ngIf="!registerForm.controls.displayName.pristine">
+            <div class="alert alert-danger" *ngIf="registerForm.controls.displayName.errors?.required">Display Name is required.</div>
+            <div class="alert alert-danger" *ngIf="registerForm.controls.displayName.errors?.pattern">{{ getInvalidDisplayNameMessage() }}</div>
+          </div>
+          <button type="submit" [disabled]="!registerForm.valid" class="btn btn-primary btn-block">Register</button>
+        </form>
+      </div>
     </div>
   </div>
 </div>

@@ -9,7 +9,7 @@ import { LoginActivate } from '../shared/components/login-activate.component';
 import { AuthService } from '../shared/services/auth.service';
 
 //Pages
-import { OverviewComponent } from '../pages/overview/overview.component';
+import { LeaguesComponent } from '../pages/leagues/leagues.component';
 import { StartComponent } from '../pages/start/start.component';
 import { NotFoundComponent } from '../errorpages/not-found.component';
 import { LoginComponent } from '../pages/login/login.component';
@@ -18,7 +18,7 @@ const appRoutes: Routes = [
   { path: '',   redirectTo: '/login', pathMatch: 'full', canActivate: [LoginActivate]},
   { path: 'login', component: LoginComponent},
   { path: 'start', component: StartComponent, canActivate: [LoginActivate]},
-  { path: 'overview', component: OverviewComponent, canActivate: [LoginActivate]},
+  { path: 'leagues', component: LeaguesComponent, canActivate: [LoginActivate]},
   { path: '**', component: NotFoundComponent }
 ];
 
@@ -27,7 +27,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     NotFoundComponent,
-    OverviewComponent,
+    LeaguesComponent,
     StartComponent,
     LoginComponent
   ],

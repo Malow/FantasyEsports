@@ -1,5 +1,56 @@
-.nav-menu {
-    padding: 2px;
-    margin: 5px 0 20px;
-    border-radius: 2px;
+.main-content {
+  background-color: #e5e7ea;
+  padding: 0 10px;
+}
+
+.fl-nav-bar {
+  background-color: white;
+  border-bottom: 1px solid gray;
+}
+
+.fl-nav-bar .nav-item {
+  display: inline-block;
+  cursor: pointer;
+  border-right: 1px solid gray;
+}
+
+.fl-nav-bar .nav-item span {
+  display: block;
+  padding: 10px 20px;
+}
+
+.fl-nav-bar .nav-item span:focus {
+  outline: none;
+}
+
+.fl-nav-bar .nav-item span.active {
+  -webkit-box-shadow: inset 0px -3px 0px 0px rgb(0, 191, 255);
+  -moz-box-shadow: inset 0px -3px 0px 0px rgba(0,191,255,1);
+  box-shadow: inset 0px -3px 0px 0px rgba(0,191,255,1);
+}
+
+.fl-nav-bar .nav-item:first-of-type {
+  border-left: 1px solid gray;
+}
+
+@keyframes hover-nav-menu {
+  from {
+    -webkit-box-shadow: inset 0px 0px 0px 0px rgba(0,191,255,1);
+    -moz-box-shadow: inset 0px 0px 0px 0px rgba(0,191,255,1);
+    box-shadow: inset 0px 0px 0px 0px rgba(0,191,255,1);
+  }
+  to {
+    -webkit-box-shadow: inset 0px -3px 0px 0px rgba(0,191,255,1);
+    -moz-box-shadow: inset 0px -3px 0px 0px rgba(0,191,255,1);
+    box-shadow: inset 0px -3px 0px 0px rgba(0,191,255,1);
+  }
+}
+
+.fl-nav-bar .nav-item span:hover {
+  animation-name: hover-nav-menu;
+  animation-duration: 0.2s;
+
+  -webkit-box-shadow: inset 0px -3px 0px 0px rgba(0,191,255,1);
+  -moz-box-shadow: inset 0px -3px 0px 0px rgba(0,191,255,1);
+  box-shadow: inset 0px -3px 0px 0px rgba(0,191,255,1);
 }
