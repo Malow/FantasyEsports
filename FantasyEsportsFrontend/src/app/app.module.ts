@@ -5,6 +5,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { LoginActivate } from '../shared/components/login-activate.component';
+import { AuthService } from '../shared/services/auth.service';
 
 //Pages
 import { OverviewComponent } from '../pages/overview/overview.component';
@@ -13,10 +15,10 @@ import { NotFoundComponent } from '../errorpages/not-found.component';
 import { LoginComponent } from '../pages/login/login.component';
 
 const appRoutes: Routes = [
-  { path: '',   redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'start', component: StartComponent },
-  { path: 'overview', component: OverviewComponent },
+  { path: '',   redirectTo: '/login', pathMatch: 'full', canActivate: [LoginActivate]},
+  { path: 'login', component: LoginComponent},
+  { path: 'start', component: StartComponent, canActivate: [LoginActivate]},
+  { path: 'overview', component: OverviewComponent, canActivate: [LoginActivate]},
   { path: '**', component: NotFoundComponent }
 ];
 
@@ -38,7 +40,10 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    LoginActivate
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,10 +1,13 @@
-<div class="nav-menu">
+<div class="nav-menu shadow" [hidden]="!isLoggedIn()">
   <ul class="nav justify-content-center">
     <li class="nav-item">
       <a class="nav-link active" routerLink="/start" routerLinkActive="active" href="#">Start</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" routerLink="/overview" routerLinkActive="active" href="#">Overview</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="logOut()" href="#">Logout</a>
     </li>
   </ul>
 </div>
