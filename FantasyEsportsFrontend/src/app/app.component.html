@@ -1,5 +1,11 @@
 <div class="nav-menu">
-  <button type="button" routerLink="/start" routerLinkActive="active" class="btn btn-primary nav-button">Start</button>
-  <button type="button" routerLink="/overview" routerLinkActive="active" class="btn btn-primary nav-button">Overview</button>
+  <ul class="nav justify-content-center">
+    <li class="nav-item">
+      <a class="nav-link active" routerLink="/start" routerLinkActive="active" href="#">Start</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/overview" routerLinkActive="active" href="#">Overview</a>
+    </li>
+  </ul>
 </div>
 <router-outlet></router-outlet>

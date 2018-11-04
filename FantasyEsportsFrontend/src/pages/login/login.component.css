@@ -1,0 +1,33 @@
+.login-page {
+    margin: 30px 0;
+    border-radius: 5px;
+    padding: 0 15px 15px;
+    background-color: white;
+}
+
+.login-page .col-md {
+  padding-bottom: 20px;
+}
+
+.login-page .title {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.login-page .form-control.ng-invalid:not(.ng-pristine) {
+    border-color: red;
+}
+
+/* Big Screen Only */
+@media only screen and (min-width: 768px) {
+    .login-page .login {
+        border-right: 1px solid silver;
+    }
+}
+/* Small Screen Only */
+@media only screen and (max-width: 767px) {
+    .login-page .login {
+        margin-bottom: 1rem;
+        border-bottom: 1px solid silver;
+    }
+}
