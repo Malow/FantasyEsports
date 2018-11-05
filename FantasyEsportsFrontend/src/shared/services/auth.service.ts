@@ -5,15 +5,15 @@ export class AuthService {
   constructor() {}
 
   isLoggedIn(): boolean {
-    return localStorage.getItem('loggedIn') ? true : false;
+    return localStorage.getItem('sessionKey') ? true : false;
   }
 
-  logIn(): void {
-    localStorage.setItem('loggedIn', 'true');
+  logIn(sessionKey: string): void {
+    localStorage.setItem('sessionKey', sessionKey);
   }
 
   logOut(): void {
-    localStorage.removeItem('loggedIn');
+    localStorage.removeItem('sessionKey');
   }
 
 }

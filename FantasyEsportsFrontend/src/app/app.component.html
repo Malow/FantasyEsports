@@ -1,15 +1,13 @@
 <div class="fl-nav-bar" *ngIf="isLoggedIn()">
-  <div class="container">
-    <div class="main-nav">
-      <div class="nav-item">
-        <span routerLink="/start" routerLinkActive="active">Start</span>
-      </div>
-      <div class="nav-item">
-        <span routerLink="/leagues" routerLinkActive="active">Leagues</span>
-      </div>
-      <div class="nav-item">
-        <span (click)="logOut()">Logout</span>
-      </div>
+  <div class="container main-nav">
+    <div class="nav-item">
+      <span routerLink="/home" routerLinkActive="active">Home</span>
+    </div>
+    <div class="nav-item">
+      <span routerLink="/leagues" routerLinkActive="active">My Leagues</span>
+    </div>
+    <div class="nav-item">
+      <span (click)="logOut()">Logout</span>
     </div>
   </div>
 </div>

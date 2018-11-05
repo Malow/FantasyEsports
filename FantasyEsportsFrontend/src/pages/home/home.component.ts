@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'start-page',
-  templateUrl: './start.component.html',
-  styleUrls: ['./start.component.css']
+  selector: 'home-page',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class StartComponent {
+export class HomeComponent {
   title = 'FantasyEsport';
 
   getNews() {
@@ -32,5 +32,9 @@ export class StartComponent {
         icon: '/assets/images/game-icons/starcraft.png'
       }
     ];
+  }
+
+  getPreviousMatches() {
+
   }
 }

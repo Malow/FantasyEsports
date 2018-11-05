@@ -1,6 +1,10 @@
 .main-content {
   background-color: #e5e7ea;
-  padding: 0 10px;
+  padding: 0 5px;
+}
+
+.main-nav {
+  padding: 0;
 }
 
 .fl-nav-bar {

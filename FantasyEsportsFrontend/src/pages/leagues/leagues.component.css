@@ -1,7 +1,6 @@
 .flex-container {
   display: flex;
-  flex-direction: row;
-  align-content: stretch;
+  flex-flow: row wrap;
 }
 
 .flex-container .flex-left {
@@ -18,7 +17,7 @@
 
 .leagues .leageues-item {
   display: flex;
-
+  min-width: 420px;
   background-color: white;
   padding: 5px 10px;
   margin-bottom: 5px;
