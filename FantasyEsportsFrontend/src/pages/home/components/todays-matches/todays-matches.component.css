@@ -1,0 +1,25 @@
+.todays-matches .match {
+  display: flex;
+  flex-flow: row wrap;
+  background-color: white;
+  margin-bottom: 2px;
+}
+
+.todays-matches .players {
+  flex: 1 0 70%;
+  padding-left: 3px;
+}
+
+.todays-matches .details {
+  text-align: right;
+  flex: 1 0 30%;
+  align-self: center;
+  padding-right: 3px;
+}
+
+/* Big Screen Only */
+@media only screen and (min-width: 992px) {
+  .todays-matches {
+    margin: 30px 0 0 5px;
+  }
+}

@@ -16,6 +16,11 @@ import { HomeComponent } from '../pages/home/home.component';
 import { NotFoundComponent } from '../errorpages/not-found.component';
 import { LoginComponent } from '../pages/login/login.component';
 
+//Components
+import { TodaysMatchesComponent } from '../pages/home/components/todays-matches/todays-matches.component';
+import { PreviousMatchesComponent } from '../pages/home/components/previous-matches/previous-matches.component';
+import { NewsComponent } from '../pages/home/components/news/news.component';
+
 const appRoutes: Routes = [
   { path: '',   redirectTo: '/login', pathMatch: 'full', canActivate: [LoginActivate]},
   { path: 'login', component: LoginComponent},
@@ -31,7 +36,10 @@ const appRoutes: Routes = [
     NotFoundComponent,
     LeaguesComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    TodaysMatchesComponent,
+    PreviousMatchesComponent,
+    NewsComponent
   ],
   imports: [
     NgbModule,
